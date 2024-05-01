@@ -2,37 +2,104 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.text-md {
+  font-size: 1.25rem; /* Medium font size for "Calgary, Alberta" */
+  font-weight: 500;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.image-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.image-container img {
+  width: 24px; /* Adjust image width */
+  height: 24px; /* Adjust image height */
+  margin-right: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.recent-projects-header {
+  text-align: left;
+  margin-left: 500px;
+  font-size: 1.5rem; 
 }
+
+.container {
+  border: 2px solid #CCCCFF;
+  background-color: #fefefe;
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 20px;
+  text-align: left;
+  margin-left: 600px;
+}
+
+:root {
+  --button-padding: 1em;
+  --space-for-arrow:-3.2em;
+}
+
+.read-more-btn {
+  position: relative;
+  padding-block: .5em; /* top and bottom padding */
+  padding-inline-start: calc(var(--space-for-arrow) + 90px); /* left padding */
+  padding-inline-end: var(--button-padding); /* right padding */
+  border-radius: .25em;
+  border : 1px solid black;
+  background-color: transparent;
+  font-size: 0.6em;
+  cursor: pointer;
+  transition: padding 250ms ease, background-color 250ms ease;
+
+}
+
+.read-more-btn::before {
+  content: "";
+  position: absolute;
+  margin-left: 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' viewBox='0 0 24 24'%3E%3Cpath d='M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z' fill='%23000000'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  inset-block-start: 50%;
+  inset-inline-start: 0; /* Adjust to align with text */
+  transform: translateY(-50%);
+  padding: .5em; /* Increase padding for larger size */
+  line-height: 1;
+  font-weight: bold; /* Make the arrow bolder */
+  transition: inset-inline-start 250ms ease;
+}
+
+.read-more-btn:hover {
+  padding-inline-start: var(--button-padding); /* left padding */
+  padding-inline-end: calc(var(--space-for-arrow) + 100px); /* right padding */
+  background-color: #e6d7ff;
+}
+
+.read-more-btn:hover::before {
+  inset-inline-start: calc(100% - 1.75em);
+}
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  right: 100px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it appears above other content */
+  border-radius: 50%; /* Make it a circle */
+  background-color: #fff; /* Background color of the circle */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+}
+
