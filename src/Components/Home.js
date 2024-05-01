@@ -90,7 +90,7 @@ function HomePage() {
                 </div>
                 <div style={{ marginBottom: '100px' }}></div>
                 <div style={{ borderTop: '2px solid #e6d7ff', padding: '20px 0', textAlign: 'center' }}>
-                    <p style={{ marginBottom: '10px' }}>Contact me here</p>
+                    <p style={{ marginBottom: '10px', fontSize:'1.5rem' }}>Contact me here</p>
                     <div>
                         <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '10px', color: 'black' }} />
                         <FontAwesomeIcon icon={faLinkedin} style={{ color: 'black' }} />
