@@ -4,6 +4,7 @@ import MotivLandingImage from '../Motiv Landing.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faHome, faUser, faFilePdf} from '@fortawesome/free-solid-svg-icons';
 
 function HomePage() {
     const [menuActive, setMenuActive] = useState(false);
@@ -38,15 +39,16 @@ function HomePage() {
                 {menuActive && (
                     <div className="modal" onClick={toggleMenu}>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Me</a></li>
-                            <li><a href="#">Resume</a></li>
-                            <li><a href="#">Contact Me</a></li>
+                            <li><FontAwesomeIcon icon={faHome} style={{ fontSize: '1.3 rem', marginRight: '10px' }} /> <a href="#">Home</a></li>
+                            <li><FontAwesomeIcon icon={faUser} style={{ fontSize: '1.3 rem', marginRight: '19px' }} /> <a href="#">About Me</a></li>
+                            <li><FontAwesomeIcon icon={faFilePdf} style={{ fontSize: '1.3 rem', marginRight: '17px' }} /> <a href="#">Resume</a></li>
+                            <li><FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '1.3 rem', marginRight: '17px' }} /> <a href="#">Contact Me</a></li>
                         </ul>
                     </div>
                 )}
 
                 {/* Content */}
+                
                 Hi, I'm Johny Do
                 <div style={{ marginBottom: '45px' }}></div>
                 <div className="mt-2 image-container">
