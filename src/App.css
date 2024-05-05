@@ -104,9 +104,9 @@
 }
 
 .modal {
-  position: absolute;
-  top: 105px; /* Adjust this value to position the modal */
-  right: 120px; /* Adjust this value to position the modal */
+  position: fixed;
+  top: calc(20px + 90px); /* Adjust this value to position the modal relative to hamburger menu */
+  right: calc(100px + 0px); /* Adjust this value to position the modal relative to hamburger menu */
   background-color: white;
   border: 2px solid #CCCCFF;
   padding: 20px;
@@ -142,4 +142,8 @@
   text-decoration: none;
   font-size: 18px;
   margin-left: 15px; /* Add margin to separate icon and text */
+}
+.small-icon {
+  font-size: 1.4rem;
+  /* You can adjust the font-size as needed */
 }

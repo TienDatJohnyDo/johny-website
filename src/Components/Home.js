@@ -9,6 +9,7 @@ import { faHome, faUser, faFilePdf} from '@fortawesome/free-solid-svg-icons';
 function HomePage() {
     const [menuActive, setMenuActive] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
+    
 
     const toggleMenu = () => {
         setMenuActive(!menuActive);
@@ -39,10 +40,10 @@ function HomePage() {
                 {menuActive && (
                     <div className="modal" onClick={toggleMenu}>
                         <ul>
-                            <li><FontAwesomeIcon icon={faHome} style={{ fontSize: '1.3 rem', marginRight: '10px' }} /> <a href="#">Home</a></li>
-                            <li><FontAwesomeIcon icon={faUser} style={{ fontSize: '1.3 rem', marginRight: '19px' }} /> <a href="#">About Me</a></li>
-                            <li><FontAwesomeIcon icon={faFilePdf} style={{ fontSize: '1.3 rem', marginRight: '17px' }} /> <a href="#">Resume</a></li>
-                            <li><FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '1.3 rem', marginRight: '17px' }} /> <a href="#">Contact Me</a></li>
+                            <li><FontAwesomeIcon icon={faHome} className="small-icon" style={{ marginRight: '14px' }} /> <a href="#">Home</a></li>
+                            <li><FontAwesomeIcon icon={faUser} className="small-icon" style={{ marginRight: '19px' }} /> <a href="#">About Me</a></li>
+                            <li><FontAwesomeIcon icon={faFilePdf} className="small-icon" style={{ marginRight: '17px' }} /> <a href="#">Resume</a></li>
+                            <li><FontAwesomeIcon icon={faEnvelope} className="small-icon" style={{ marginRight: '17px' }} /> <a href="#">Contact Me</a></li>
                         </ul>
                     </div>
                 )}
