@@ -9,7 +9,9 @@ import { faHome, faUser, faFilePdf} from '@fortawesome/free-solid-svg-icons';
 function HomePage() {
     const [menuActive, setMenuActive] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
-    
+    const [displayProjects, setDisplayProjects] = useState(true);
+    const [displayLearning, setDisplayLearning] = useState(false);
+    const [displayListening, setDisplayListening] = useState(false);
 
     const toggleMenu = () => {
         setMenuActive(!menuActive);
@@ -18,6 +20,24 @@ function HomePage() {
 
     const toggleModal = () => {
         setModalOpen(!modalOpen);
+    };
+
+    const showProjects = () => {
+        setDisplayProjects(true);
+        setDisplayLearning(false);
+        setDisplayListening(false);
+    };
+
+    const showLearning = () => {
+        setDisplayProjects(false);
+        setDisplayLearning(true);
+        setDisplayListening(false);
+    };
+
+    const showListening = () => {
+        setDisplayProjects(false);
+        setDisplayLearning(false);
+        setDisplayListening(true);
     };
 
     return (
@@ -98,8 +118,20 @@ function HomePage() {
                 </div>
                 <div style={{ marginBottom: '32px' }}></div>
                 <div className="container" style={{ width: '900px', margin: '0 auto', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem', marginBottom: '16px' }}>Projects</h2>
-                    <div style={{ flex: 1, display: 'flex' }}>
+                    <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem', marginBottom: '16px' }}>
+                        <span onClick={showProjects} style={{ cursor: 'pointer', color: displayProjects ? '#0000FF' : 'black' }}>
+                            Projects
+                        </span>
+                        {" / "}
+                        <span onClick={showLearning} style={{ cursor: 'pointer', color: !displayProjects ? '#0000FF' : 'black' }}>
+                            Learning
+                        </span>
+                        {" / "}
+                        <span onClick={showListening} style={{ cursor: 'pointer', color: !displayProjects && !displayLearning ? '#0000FF' : 'black' }}>
+                            Listening
+                        </span>
+                    </h2>
+                    <div style={{ flex: 1, display: displayProjects ? 'flex' : 'none' }}>
                         <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '10px', padding: '20px' }}>
                             <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
                                 <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Project 1</h2>
@@ -119,6 +151,46 @@ function HomePage() {
                             </div>
                         </div>
                     </div>
+                    <div style={{ flex: 1, display: displayLearning ? 'flex' : 'none' }}>
+                        <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '10px', padding: '20px' }}>
+                            <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
+                                <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Learning 1</h2>
+                                <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Learning 1</p>
+                            </div>
+                        </div>
+                        <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '10px', padding: '20px' }}>
+                            <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
+                                <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Learning 2</h2>
+                                <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Learning 2</p>
+                            </div>
+                        </div>
+                        <div style={{ flex: 1, border: '2px solid #CCCCFF', borderRadius: '10px', padding: '20px' }}>
+                            <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
+                                <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Learning 3</h2>
+                                <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Learning 3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style={{ flex: 1, display: displayListening ? 'flex' : 'none' }}>
+                        <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '10px', padding: '20px' }}>
+                            <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
+                                <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Listening 1</h2>
+                                <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Listening 1</p>
+                            </div>
+                        </div>
+                        <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '10px', padding: '20px' }}>
+                            <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
+                                <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Listening 2</h2>
+                                <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Listening 2</p>
+                            </div>
+                        </div>
+                        <div style={{ flex: 1, border: '2px solid #CCCCFF', borderRadius: '10px', padding: '20px' }}>
+                            <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
+                                <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Listening 3</h2>
+                                <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Listening 3</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div style={{ marginBottom: '100px' }}></div>
                 <div style={{ borderTop: '2px solid #e6d7ff', padding: '20px 0', textAlign: 'center' }}>
@@ -134,4 +206,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
