@@ -161,13 +161,13 @@ function HomePage() {
                     </div>
                 </div>
                 <div className="flex justify-between mt-4">
-                    <button onClick={handlePrevProject}>
-                        <FontAwesomeIcon icon={faArrowLeft} />
-                    </button>
-                    <button onClick={handleNextProject}>
-                        <FontAwesomeIcon icon={faArrowRight} />
-                    </button>
-                </div>
+    <button onClick={handlePrevProject} style={{ marginRight: '10px' }}>
+        <FontAwesomeIcon icon={faArrowLeft} />
+    </button>
+    <button onClick={handleNextProject} style={{ marginLeft: '10px' }}>
+        <FontAwesomeIcon icon={faArrowRight} />
+    </button>
+</div>
                 <div style={{ marginBottom: '100px' }}></div>
                 <div className="self-start mt-10 ml-6 text-2xl font-bold text-black recent-projects-header">
                     Currently
