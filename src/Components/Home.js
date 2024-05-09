@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import '../App.css';
-import MotivLandingImage from '../Motiv Landing.png';
+import MotivLandingImage from '../Photo/Motiv Landing.png';
+import HRBLandingImage from '../Photo/HRBLanding.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faHome, faUser, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import Pdf from '../pdf/Johny_Resume.pdf'; 
 
 function HomePage() {
     const [menuActive, setMenuActive] = useState(false);
@@ -65,17 +68,17 @@ function HomePage() {
     const projects = [
         {
             title: "Motiv Assist",
-            year: "2024",
+            year: "Capstone Project 2024",
             description: "AI Scripts | Infrastructure | Deployment",
             details: "Creating a Work Assistant Chatbot with Notion that prioritizes data security.",
             image: MotivLandingImage
         },
         {
-            title: "Example Project",
-            year: "2023",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget arcu eget libero finibus rutrum. Pellentesque eu sollicitudin dolor, ut congue nunc.",
-            image: "https://via.placeholder.com/400x217"
+            title: "H&R Block AI Chatbot",
+            year: "Summer Internship 2023",
+            description: "Product Management Intern",
+            details: "Designing and implemented an AI chatbot's conversation flow, and incorporated user input analysis.",
+            image: HRBLandingImage
         },
         
     ];
@@ -106,12 +109,25 @@ function HomePage() {
 
                 {/* Modal */}
                 {menuActive && (
+                    
                     <div className="modal" onClick={toggleMenu}>
                         <ul>
-                            <li><FontAwesomeIcon icon={faHome} className="small-icon" style={{ marginRight: '14px' }} /> <a href="#">Home</a></li>
-                            <li><FontAwesomeIcon icon={faUser} className="small-icon" style={{ marginRight: '19px' }} /> <a href="#">About Me</a></li>
-                            <li><FontAwesomeIcon icon={faFilePdf} className="small-icon" style={{ marginRight: '17px' }} /> <a href="#">Resume</a></li>
-                            <li><FontAwesomeIcon icon={faEnvelope} className="small-icon" style={{ marginRight: '17px' }} /> <a href="#">Contact Me</a></li>
+                            <li>
+                                <FontAwesomeIcon icon={faHome} className="small-icon" style={{ marginRight: '14px' }} />
+                                <Link to="/">Home</Link> {/* Wrap with Link and provide the path */}
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faUser} className="small-icon" style={{ marginRight: '19px' }} />
+                                <Link to="/About">About Me</Link> {/* Wrap with Link and provide the path */}
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faFilePdf} className="small-icon" style={{ marginRight: '17px' }} />
+                                <a href={Pdf} without rel="noopener noreferrer" target="_blank">Resume</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faEnvelope} className="small-icon" style={{ marginRight: '17px' }} />
+                                <Link to="/Contact">Contact Me</Link> {/* Wrap with Link and provide the path */}
+                            </li>
                         </ul>
                     </div>
                 )}
@@ -156,18 +172,18 @@ function HomePage() {
                             loading="lazy"
                             src={projects[currentProjectIndex].image}
                             alt="Recent Project"
-                            style={{ width: '400px', height: '217px', borderRadius: '20px' }}
+                            style={{ width: '400px', height: '217px', borderRadius: '20px',border: '2px solid #FAE6FA' }}
                         />
                     </div>
                 </div>
                 <div className="flex justify-between mt-4">
-    <button onClick={handlePrevProject} style={{ marginRight: '10px' }}>
-        <FontAwesomeIcon icon={faArrowLeft} />
-    </button>
-    <button onClick={handleNextProject} style={{ marginLeft: '10px' }}>
-        <FontAwesomeIcon icon={faArrowRight} />
-    </button>
-</div>
+                    <button onClick={handlePrevProject} style={{ marginRight: '10px' }}>
+                        <FontAwesomeIcon icon={faArrowLeft} />
+                    </button>
+                    <button onClick={handleNextProject} style={{ marginLeft: '10px' }}>
+                        <FontAwesomeIcon icon={faArrowRight} />
+                    </button>
+                </div>
                 <div style={{ marginBottom: '100px' }}></div>
                 <div className="self-start mt-10 ml-6 text-2xl font-bold text-black recent-projects-header">
                     Currently
@@ -188,60 +204,60 @@ function HomePage() {
             <div style={{ flex: 1, display: displayProjects ? 'flex' : 'none' }}>
                 <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '20px', padding: '20px' }}>
                     <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
-                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Project 1</h2>
-                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Project 1</p>
+                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Spotify Stock Analysis</h2>
+                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Using Machine Learning and The Spotify data to predict stock prices</p>
                     </div>
                 </div>
                 <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '20px', padding: '20px' }}>
                     <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
-                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Project 2</h2>
-                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Project 2</p>
+                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Housing Price Prediciton in Python</h2>
+                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Prediciting the Housing Prices - Data Science and Machine Learning</p>
                     </div>
                 </div>
                 <div style={{ flex: 1, border: '2px solid #CCCCFF', borderRadius: '20px', padding: '20px' }}>
                     <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
-                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Project 3</h2>
-                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Project 3</p>
+                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Music Recommender</h2>
+                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Making a Project in order to Recommen New Music</p>
                     </div>
                 </div>
             </div>
             <div style={{ flex: 1, display: displayLearning ? 'flex' : 'none' }}>
                 <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '20px', padding: '20px' }}>
                     <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
-                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Learning 1</h2>
-                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Learning 1</p>
+                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Udemy Course: </h2>
+                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Python for Data Science and Machine Learning Bootcamp</p>
                     </div>
                 </div>
                 <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '20px', padding: '20px' }}>
                     <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
-                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Learning 2</h2>
-                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Learning 2</p>
+                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Udemy Course:</h2>
+                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Complete A.I & Machine Learning, Data Science Bootcamp</p>
                     </div>
                 </div>
                 <div style={{ flex: 1, border: '2px solid #CCCCFF', borderRadius: '20px', padding: '20px' }}>
                     <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
-                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Learning 3</h2>
-                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Learning 3</p>
+                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Udemy Course:</h2>
+                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>The Data Science Course : Complete Data Science Bootcamp 2024</p>
                     </div>
                 </div>
             </div>
             <div style={{ flex: 1, display: displayListening ? 'flex' : 'none' }}>
                 <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '20px', padding: '20px' }}>
                     <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '20px' }}>
-                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Listening 1</h2>
-                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Listening 1</p>
+                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Songs of the week</h2>
+                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Smart - Le Sserafim</p>
                     </div>
                 </div>
                 <div style={{ flex: 1, marginRight: '10px', border: '2px solid #CCCCFF', borderRadius: '20px', padding: '20px' }}>
                     <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '20px' }}>
-                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Listening 2</h2>
-                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Listening 2</p>
+                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Songs of the week</h2>
+                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Midas Touch - Kiss of Life</p>
                     </div>
                 </div>
                 <div style={{ flex: 1, border: '2px solid #CCCCFF', borderRadius: '20px', padding: '20px' }}>
                     <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
-                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Listening 3</h2>
-                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Description of Listening 3</p>
+                        <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Songs of the week</h2>
+                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Magnetic - Illit</p>
                     </div>
                 </div>
             </div>
