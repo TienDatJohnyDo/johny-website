@@ -71,14 +71,16 @@ function HomePage() {
             year: "Capstone Project 2024",
             description: "AI Scripts | Infrastructure | Deployment",
             details: "Creating a Work Assistant Chatbot with Notion that prioritizes data security.",
-            image: MotivLandingImage
+            image: MotivLandingImage,
+            link : "/Projects/MotivProject"
         },
         {
             title: "H&R Block AI Chatbot",
             year: "Summer Internship 2023",
             description: "Product Management Intern",
             details: "Designing and implemented an AI chatbot's conversation flow, and incorporated user input analysis.",
-            image: HRBLandingImage
+            image: HRBLandingImage,
+            link : "/Projects/HRBlockProject"
         },
         
     ];
@@ -162,10 +164,7 @@ function HomePage() {
                         <div style={{ marginBottom: '16px' }}></div>
                         <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>{projects[currentProjectIndex].details}</p>
                         <div style={{ marginBottom: '32px' }}></div>
-                        <button className="read-more-btn">
-                            Read More
-                            <span className="arrow"></span> {/* Adding arrow span */}
-                        </button>
+                        <a class = "read-more-btn" href = {projects[currentProjectIndex].link}> Read More</a>
                     </div>
                     <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <img
@@ -217,7 +216,7 @@ function HomePage() {
                 <div style={{ flex: 1, border: '2px solid #CCCCFF', borderRadius: '20px', padding: '20px' }}>
                     <div style={{ marginBottom: '16px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px' }}>
                         <h2 className="font-bold text-2xl" style={{ fontSize: '1.25rem' }}>Music Recommender</h2>
-                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Making a Project in order to Recommen New Music</p>
+                        <p className="text-md font-medium" style={{ fontSize: '1.25rem' }}>Making a Project in order to Recommend New Music</p>
                     </div>
                 </div>
             </div>
