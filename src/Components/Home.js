@@ -9,7 +9,7 @@ import { faHome, faUser, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import Pdf from '../pdf/Johny_Resume.pdf'; 
+import Pdf from '../pdf/JohnyResume.pdf'; 
 
 function HomePage() {
     const [menuActive, setMenuActive] = useState(false);
