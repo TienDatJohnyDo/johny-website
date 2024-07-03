@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import '../App.css';
 import MotivLandingImage from '../Photo/Motiv Landing.png';
 import HRBLandingImage from '../Photo/HRBLanding.png';
@@ -19,6 +19,7 @@ function HomePage() {
     const [displayListening, setDisplayListening] = useState(false);
     const [showProgress, setShowProgress] = useState(false);
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+    const footerRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -92,6 +93,10 @@ function HomePage() {
     const handlePrevProject = () => {
         setCurrentProjectIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
     };
+    const scrollToFooter = () => {
+        footerRef.current.scrollIntoView({ behavior: "smooth" });
+    };
+
 
     return (
         <>
@@ -128,7 +133,7 @@ function HomePage() {
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faEnvelope} className="small-icon" style={{ marginRight: '17px' }} />
-                                <Link to="/Contact">Contact Me</Link> {/* Wrap with Link and provide the path */}
+                                 <Link to="#" onClick={scrollToFooter}>Contact Me</Link>
                             </li>
                         </ul>
                     </div>
@@ -261,7 +266,9 @@ function HomePage() {
                 </div>
             </div>
         </div>
+
         <div style={{ marginBottom: '100px' }}></div>
+        <footer ref = {footerRef}>
                 <div style={{ borderTop: '2px solid #e6d7ff', padding: '20px 0', textAlign: 'center' }}>
                     <p style={{ marginBottom: '10px', fontSize:'1.2rem' }}>Contact me here</p>
                     <div>
@@ -276,6 +283,10 @@ function HomePage() {
                         </a>
                     </div>
                 </div>
+
+        </footer>
+
+                
             </div>
         </>
     );
